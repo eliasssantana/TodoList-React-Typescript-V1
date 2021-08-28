@@ -1,38 +1,124 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 62,5%;
+
+  --vermelhoEscuro: #B10606;
+  --vermelhoClaro: #EF0000;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-color: var(--vermelhoClaro);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: 3rem;
+}
+
+header{
+  background-color: var(--vermelhoEscuro);
+  width: 38.4rem;
+  height: 8.8rem;
+  border-radius: 2.2rem;
+}
+header > h1{
+  font-size: 6rem;
+  font-family: 'Pangolin';
+  text-align: center;
+  padding: 1rem;
+  color: #FFFFFF;
+}
+
+form{
+  margin: 3rem 0;
+  display: flex;
+}
+
+input[type="text"]{
+  width: 44.2rem;
+  height: 7.2rem;
+  border-radius: 1.3rem 0 0 1.3rem;
+  font-size: 3rem;
+  padding-left: 1rem;
+  color: rgba(0, 0, 0, 0.589);
+  border: none;
+}
+
+input::placeholder{
+  font-size: 3rem;
+  color: #C4C4C4;
+}
+
+.button{
+  height: 7.2rem;
+  width: 13.3rem;
+  border-radius: 0 1.3rem 1.3rem 0;
+  border: none;
+  font-size:3.6rem;
   color: white;
+  background-color: var(--vermelhoEscuro);
 }
 
-.App-link {
-  color: #61dafb;
+img{
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+section{
+  background-color: #FFFFFF;
+  box-shadow: 3.2rem 3.1rem #00000025;
+  border-radius: 1.3rem;
+  width: 57.5rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.todos-wrapper{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--vermelhoEscuro);
+  min-width: 52.7rem;
+  height: 6.9rem;
+  margin: 2.5rem;
+  border-radius: 1.3rem;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.botoes{
+  display: flex;
+  margin-left: 1rem;
+  width: 13rem;
+  display: flex;
+  justify-content: space-between;
+  margin-right: -15rem;
+}
+
+.todos-wrapper > div{
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.todos-wrapper > div > p{
+  font-size: 3.6rem;
+  margin-left: -15rem;
+  color: white;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+button{
+  width: 6rem;
+  height: 4rem;
+  background-color: white;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1rem;
 }

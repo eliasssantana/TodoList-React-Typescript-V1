@@ -1,4 +1,4 @@
-import React, {useState, Fragment} from 'react';
+import React, {useState, Fragment, HTMLAttributeAnchorTarget} from 'react';
 import './App.css';
 
 /* crio um 'alias' para o evento disparado pelo form e atribuo um tipo
@@ -45,27 +45,39 @@ function App(): JSX.Element {
     setTodos(newTodos)
   }
   // Função que completa as tarefas do To do List.
-  const completeTodo = (index: number): void =>{
+  const completeTodo = (index: number) : void =>{
     const newTodos: ITodo[] = [...todos]
     newTodos[index].complete = !newTodos[index].complete
     setTodos(newTodos)
   }
   return (
     <>
-      <h1>Todo List</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={value} onChange={e => setValue(e.target.value)} required/>
-        <button type="submit">Add Todo</button>
-      </form>
-      <section>
-        {todos.map((todo: ITodo, index: number) => (
-          <Fragment key={index}>
-            <div style={{textDecoration: todo.complete? 'line-through': ''}}>{todo.text}</div>
-            <button type="button" onClick={() => completeTodo(index)}>{todo.complete? "Complete":"Imcomplete"}</button>
-            <button type="button" onClick={() =>removeTodo(index)}>&copysr;</button>
-          </Fragment>
-        ))}
-      </section>
+      <div className="container">
+        <header>
+          <h1>Todo List</h1>
+        </header>
+        <form onSubmit={handleSubmit}>
+          <input type="text" value={value} placeholder="Add Todo" onChange={e => setValue(e.target.value)} required/>
+          <button className= "button" type="submit">Add</button>
+        </form>
+        <section>
+          {todos.map((todo: ITodo, index: number) => (
+            <Fragment key={index}>
+              <div className="todos-wrapper">
+                <div>
+                  <p style={{textDecoration: todo.complete? 'line-through': ''}}>{todo.text}</p>
+                </div>
+                <div className="botoes">
+                  <button type="button" className="action" onClick={() => {
+                    completeTodo(index)}}>{todo.complete? "incomplete":"complete"}</button>
+                  <button type="button" className="action" onClick={() =>{
+                    removeTodo(index)}}>delete</button>                   
+                </div>
+              </div>
+            </Fragment>
+          ))}
+        </section>
+      </div>
     </>
   );
 }
